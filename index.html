@@ -43,8 +43,8 @@
 <script type="text/javascript">
 	function setSong (obj) {
 		var resourceId =  $(obj).attr("data-id");
-		$('audio').attr("src", "songs/" + resourceId + ".mp3");
-		$('#Player img').attr("src", "songs/" + resourceId + ".jpg");
+		$('audio').attr("src", "Songs/" + resourceId + ".mp3");
+		$('#Player img').attr("src", "Songs/" + resourceId + ".jpg");
 		$('#name').text(obj.innerText);
 		playbtn.css('background-image',"url('icons/play.png')");
 	}
