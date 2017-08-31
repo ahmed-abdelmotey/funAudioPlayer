@@ -8,18 +8,18 @@
 </head>
 <body>
 <audio onplay="Play()" onpause="Pause()">
-	<source src="Songs/心想唱歌就唱歌.mp3" type="audio/mpeg" title="心想唱歌就唱歌" >
-	<source src="Songs/朋友.mp3" type="audio/mpeg" title="朋友">
-	<source src="Songs/有个爱你的人不容易.mp3" type="audio/mpeg" title="有个爱你的人不容易">
-	<source src="Songs/因为爱着你.mp3" type="audio/mpeg" title="因为爱着你">
+	<source src="Songs/1.mp3" type="audio/mpeg" title="心想唱歌就唱歌" >
+	<source src="Songs/2.mp3" type="audio/mpeg" title="朋友">
+	<source src="Songs/3.mp3" type="audio/mpeg" title="有个爱你的人不容易">
+	<source src="Songs/4.mp3" type="audio/mpeg" title="因为爱着你">
 	Your browser does not support the audio element.
 </audio>
 <section id="audio-player" style="position: absolute; top: 20%; left: 25%">
 
 <section id="Player">
-	<img src="Songs/心想唱歌就唱歌.jpg">
+	<img src="Songs/1.jpg">
 	<p>Now Playing <span id="name">心想唱歌就唱歌</span></p>
-	<div id="seekcont"><input type="range" id="seek" value="0" step="1" max="100" onchange="SeekTrack()"></div>
+	<div id="seekcont"><input type="range" id="see	k" value="0" step="1" max="100" onchange="SeekTrack()"></div>
 	<span id="current">00:00</span>
 	<ul>
 		<li style="background-image: url('icons/pre.png');background-size: cover;"><a href="#"><span></span></a></li>
@@ -32,18 +32,19 @@
 </section>
 <section id="songs">
 	<ul>
-		<li><a href="#" onclick="setSong(this)"><span class="song">心想唱歌就唱歌</span></a></li>
-		<li><a href="#" onclick="setSong(this)"><span class="song">朋友</span></a></li>
-		<li><a href="#" onclick="setSong(this)"><span class="song">有个爱你的人不容易</span></a></li>
-		<li><a href="#" onclick="setSong(this)"><span class="song">因为爱着你 </span></a></li>
+		<li><a href="#" onclick="setSong(this)" data-id="1"><span class="song">因为爱着你</span></a></li>
+		<li><a href="#" onclick="setSong(this)" data-id="2"><span class="song">心想唱歌就唱歌</span></a></li>
+		<li><a href="#" onclick="setSong(this)" data-id="3"><span class="song">有个爱你的人不容易</span></a></li>
+		<li><a href="#" onclick="setSong(this)" data-id="4"><span class="song">朋友</span></a></li>
 	</ul>
 </section>
 </section>
 
 <script type="text/javascript">
 	function setSong (obj) {
-		$('audio').attr("src", "songs/" + obj.innerText + ".mp3");
-		$('#Player img').attr("src", "songs/" + obj.innerText + ".jpg");
+		var resourceId =  $(obj).attr("data-id");
+		$('audio').attr("src", "songs/" + resourceId + ".mp3");
+		$('#Player img').attr("src", "songs/" + resourceId + ".jpg");
 		$('#name').text(obj.innerText);
 		playbtn.css('background-image',"url('icons/play.png')");
 	}
